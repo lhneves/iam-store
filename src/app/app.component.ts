@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
+import { ionArrowRedoSharp, ionTrashSharp } from '@ng-icons/ionicons';
 import { heroUserCircle } from '@ng-icons/heroicons/outline';
 
 @Component({
@@ -8,6 +9,8 @@ import { heroUserCircle } from '@ng-icons/heroicons/outline';
   templateUrl: './app.component.html',
   standalone: true,
   imports: [NgIconComponent, RouterOutlet],
-  viewProviders: [provideIcons({ heroUserCircle })],
+  viewProviders: [
+    provideIcons({ heroUserCircle, ionArrowRedoSharp, ionTrashSharp }),
+  ],
 })
 export class AppComponent {}
