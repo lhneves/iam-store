@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint --force",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "server": "json-server --watch src/app/data/db.json --port 3000"
   },
   "private": true,
   "dependencies": {
@@ -22,6 +23,7 @@
     "@ng-icons/core": "^27.5.2",
     "@ng-icons/heroicons": "^29.5.0",
     "@ng-icons/ionicons": "^29.5.0",
+    "json-server": "^1.0.0-beta.2",
     "primeng": "^17.18.9",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
