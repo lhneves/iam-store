@@ -1,0 +1,34 @@
+{
+  "products": [
+    {
+      "code": 1,
+      "productName": "Produto 1",
+      "category": "atacado"
+    },
+    {
+      "code": 2,
+      "productName": "Produto 2",
+      "category": "varejo"
+    },
+    {
+      "code": 3,
+      "productName": "Produto 3",
+      "category": "internacional"
+    },
+    {
+      "code": 4,
+      "productName": "Produto 4",
+      "category": "atacado"
+    },
+    {
+      "code": 5,
+      "productName": "Produto 5",
+      "category": "varejo"
+    },
+    {
+      "code": 6,
+      "productName": "Produto 6",
+      "category": "internacional"
+    }
+  ]
+}
