@@ -1,0 +1,14 @@
+<app-product-search (searchEvent)="handleSearch($event)"></app-product-search>
+<div class="flex flex-col gap-4 ">
+  <div class="flex items-center justify-between">
+    <h2 class="text-3xl font-bold">Produtos</h2>
+    <p-button [text]="true" class="flex items-center cursor-pointer">
+      <strong class="text-base font-semibold mr-2"> Novo Produto</strong>
+      <ng-icon name="ionAddCircleOutline" size="1.5rem"></ng-icon>
+    </p-button>
+  </div>
+  <p>Abaixo há uma lista de produtos classificados por código, nome e categoria.</p>
+</div>
+<div class="grid grid-cols-3 gap-7 mt-10">
+  <app-product-card *ngFor="let product of products" [productInfo]="product"></app-product-card>
+</div>
