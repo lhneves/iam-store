@@ -1,0 +1,11 @@
+<section class="flex items-center justify-end my-10 gap-4">
+  <div class="search-code relative flex items-center">
+    <p-inputNumber class="w-48" placeholder="código do produto" inputId="integeronly" [(ngModel)]="code"
+      locale="pt-BR" />
+  </div>
+
+  <p-dropdown class="w-48" [options]="categoryOptions" [(ngModel)]="category" optionLabel="label" optionValue="value"
+    placeholder="selecione a categoria" [style]="{'width':'100%'}" />
+
+  <p-button severity="primary" label="Buscar" (click)="onSearch()"></p-button>
+</section>
