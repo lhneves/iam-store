@@ -15,4 +15,11 @@ export const routes: Routes = [
       },
     ],
   },
+  {
+    path: 'product/:code',
+    loadComponent: () =>
+      import(
+        './features/products/page/product-edit/product-edit.component'
+      ).then((m) => m.ProductEditComponent),
+  },
 ];
