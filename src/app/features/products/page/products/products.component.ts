@@ -6,48 +6,71 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
 import { NgIconComponent } from '@ng-icons/core';
 import { ButtonModule } from 'primeng/button';
+import { IProduct } from '../../models/product.model';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+import { ProductRegisterFormComponent } from '../../components/product-register-form/product-register-form.component';
 
 @Component({
   standalone: true,
   selector: 'app-product-page',
   imports: [
-    NgIconComponent,
-    ButtonModule,
-    HttpClientModule,
     CommonModule,
     ProductSearchComponent,
     ProductCardComponent,
+    ProductRegisterFormComponent,
+    ToastModule,
   ],
+  providers: [MessageService],
   templateUrl: './products.component.html',
 })
 export class ProductPageComponent {
-  products: any[] = [];
+  products: IProduct[] = [];
   errorMessage: string | null = null;
 
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private messageService: MessageService
+  ) {}
 
   ngOnInit() {
     this.fetchProducts();
   }
 
   fetchProducts() {
-    this.productService.getProducts().subscribe(
+    this.productService.getProducts({}).subscribe(
       (data) => {
         this.products = data;
       },
       (error) => {
         console.error('Error fetching products:', error);
-        this.errorMessage = 'Error fetching products';
+        this.errorMessage =
+          'Não foi possível carregar os produtos. Tente novamente';
       }
     );
   }
 
   handleSearch(filters: { code: string; category: string }) {
-    console.log(filters);
     this.productService
-      .getProducts(filters.code, filters.category)
+      .getProducts({ code: filters.code, category: filters.category })
       .subscribe((data) => {
         this.products = data;
       });
+  }
+
+  handleDeleteProduct(filters: { id: string }) {
+    this.productService.deleteProductById(filters.id).subscribe(() => {
+      console.log('Product Deleted');
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Deletado',
+        detail: 'Produto deletado com sucesso',
+      });
+      this.fetchProducts();
+    });
+  }
+
+  handleCreateProduct() {
+    this.fetchProducts();
   }
 }
