@@ -1,15 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { ProductSearchComponent } from '../../components/product-search/product-search.component';
+
 import { ProductService } from '../../service/product.service';
-import { HttpClientModule } from '@angular/common/http';
+
+import { ProductSearchComponent } from '../../components/product-search/product-search.component';
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
-import { NgIconComponent } from '@ng-icons/core';
-import { ButtonModule } from 'primeng/button';
+import { ProductRegisterFormComponent } from '../../components/product-register-form/product-register-form.component';
+
 import { IProduct } from '../../models/product.model';
+
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
-import { ProductRegisterFormComponent } from '../../components/product-register-form/product-register-form.component';
 
 @Component({
   standalone: true,
