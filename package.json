@@ -7,7 +7,6 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint --force",
-    "prepare": "husky install",
     "server": "json-server --watch src/app/data/db.json --port 3000"
   },
   "private": true,
