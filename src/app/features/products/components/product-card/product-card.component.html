@@ -1,3 +1,11 @@
+<p-confirmDialog>
+  <ng-template pTemplate="message" let-message>
+    <div>
+      <p>{{ message.message }}</p>
+    </div>
+  </ng-template>
+</p-confirmDialog>
+
 <div class="relative flex flex-col px-6 py-4 gap-6 w-full max-w-[400px] bg-gray-900 rounded-md">
   <div class="product-card flex flex-col gap-3 text-white">
     <p class="underline underline-offset-4 decoration-primary">{{productInfo.category}}</p>
@@ -6,13 +14,13 @@
   </div>
   <div class="flex items-center justify-between text-white">
 
-    <p-button severity="danger" [text]="true">
+    <p-button severity="danger" [text]="true" (onClick)="confirmDelete($event)">
       <p class="text-sm">
         deletar
       </p>
       <ng-icon name="ionTrashSharp" size="1rem" class="ml-2"></ng-icon>
     </p-button>
-    <a [routerLink]="['/product']" class="p-button p-button-outlined">
+    <a [routerLink]="['/product', productInfo.id]" class="p-button p-button-outlined">
       <p class="text-sm">editar</p>
       <ng-icon name="ionArrowRedoSharp" size="0.65rem" class="ml-2"></ng-icon>
     </a>
