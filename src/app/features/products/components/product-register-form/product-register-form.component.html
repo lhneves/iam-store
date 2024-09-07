@@ -1,0 +1,47 @@
+<p-button [text]="true" class="flex items-center cursor-pointer" (onClick)="visible = true">
+  <strong class="text-base font-semibold mr-2"> Novo Produto</strong>
+  <ng-icon name="ionAddCircleOutline" size="1.5rem"></ng-icon>
+</p-button>
+
+<p-dialog header="Crie um novo produto" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">
+  <form [formGroup]="registerForm" (submit)="onCreate()" class="flex flex-col gap-4">
+    <div class="flex flex-col gap-2 w-full">
+      <label for="code">Código</label>
+      <p-inputNumber class="w-full" placeholder="código do produto" aria-describedby="codigo-do-produto"
+        inputId="integeronly" formControlName="code" locale="pt-BR" />
+      <small class="text-base text-red-500" id="code-help"
+        *ngIf="registerForm.controls['code'].invalid && (registerForm.controls['code'].dirty || registerForm.controls['code'].touched)">
+        <p *ngIf="registerForm.controls['code'].errors?.['required']">Este campo é obrigatório</p>
+      </small>
+    </div>
+
+    <div class="flex flex-col gap-2 w-full">
+      <label for="category">Categoria</label>
+      <p-dropdown class="w-full z-50" id="category" [options]="categoryOptions" formControlName="category"
+        optionLabel="label" optionValue="value" placeholder="nova categoria" [style]="{'width':'100%'}" />
+      <small class="text-base text-red-500" id="category-help"
+        *ngIf="registerForm.controls['category'].invalid && (registerForm.controls['category'].dirty || registerForm.controls['category'].touched)">
+        <p *ngIf="registerForm.controls['category'].errors?.['required']">Este campo é obrigatório</p>
+      </small>
+    </div>
+
+    <div class="flex flex-col gap-2 w-full">
+      <label for="productName">Nome</label>
+      <input pInputText id="productName" aria-describedby="nome-do-produto" formControlName="productName"
+        placeholder="nome do produto" />
+      <small class="text-base text-red-500" id="productName-help"
+        *ngIf="registerForm.controls['productName'].invalid && (registerForm.controls['productName'].dirty || registerForm.controls['productName'].touched)">
+        <p *ngIf="registerForm.controls['productName'].errors?.['required']">Este campo é obrigatório</p>
+        <p *ngIf="registerForm.controls['productName'].errors?.['minlength']">Este campo requer mínimo de 4 dígitos.</p>
+      </small>
+    </div>
+
+    <span class="mt-2 text-red-500" *ngIf="!!errorMessage">{{errorMessage}}</span>
+  </form>
+
+
+  <div class="flex justify-end gap-5 mt-10">
+    <p-button label="Cancelar" severity="secondary" (click)="visible = false" />
+    <p-button label="Salvar" (click)="handleCreateProduct()" />
+  </div>
+</p-dialog>
