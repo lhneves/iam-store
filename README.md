@@ -1,27 +1,38 @@
 # IamStore
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.2.
+Existem duas maneiras para rodar esse projeto:
 
-## Development server
+1. Docker
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Caso você possua docker na sua máquina, abra `Docker Desktop`, ou dê start no docker engine pelo terminal.
 
-## Code scaffolding
+Abra um terminal no diretório raíz do projeto e rode:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```zsh
+docker-compose up
+```
 
-## Build
+Esse comando irá buildar duas imagens do docker e subir ambas as imagens, a aplicação se encontrará no endereço [http://localhost:4200/](http://localhost:4200/).
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+2. Node
 
-## Running unit tests
+Caso não tenha Docker instalado, mas tenha `Node` e `npm`:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Abra um terminal no diretório raíz do projeto e rode:
 
-## Running end-to-end tests
+```zsh
+npm run server
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Em _outro_ terminal, no mesmo diretório, e rode:
 
-## Further help
+```zsh
+ng server
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+A aplicação se encontrará no endereço [http://localhost:4200/](http://localhost:4200/).
+
+## Pontos de melhora no projeto
+
+Testes: o coverage de testes é bem baixo, infelizmente por uma limitação própria de conhecimento sobre o próprio angular
+Padronização: alguns conceitos de ngModel, ReactiveForms, entre outros, são relativamente novos para mim, conforme fui criando a aplicação, fui aprendendo conceitos melhores e adaptando.

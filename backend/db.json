@@ -2,63 +2,39 @@
   "products": [
     {
       "id": "1",
-      "code": "1",
+      "code": 1,
       "productName": "Produto 1",
       "category": "atacado"
     },
     {
-      "id": "3",
-      "code": "3",
-      "productName": "Produto 3",
+      "id": "2",
+      "code": 2,
+      "productName": "Produto 2",
       "category": "varejo"
     },
     {
-      "id": "4",
-      "code": "4",
+      "id": "3",
+      "code": 3,
+      "productName": "Produto 3",
+      "category": "internacional"
+    },
+    {
+      "id": "1",
+      "code": 4,
       "productName": "Produto 4",
       "category": "atacado"
     },
     {
-      "id": "5",
-      "code": "5",
+      "id": "2",
+      "code": 5,
       "productName": "Produto 5",
       "category": "varejo"
     },
     {
-      "id": "6",
-      "code": "6",
+      "id": "3",
+      "code": 6,
       "productName": "Produto 6",
       "category": "internacional"
-    },
-    {
-      "id": "f6b6",
-      "productName": "Produto 8",
-      "category": "atacado",
-      "code": 12
-    },
-    {
-      "id": "899b",
-      "code": 13,
-      "productName": "Produto 13",
-      "category": "atacado"
-    },
-    {
-      "id": "dd2c",
-      "code": 14,
-      "productName": "Produto 14",
-      "category": "varejo"
-    },
-    {
-      "id": "acb8",
-      "code": 18,
-      "productName": "Produto 18",
-      "category": "atacado"
-    },
-    {
-      "id": "dd5d",
-      "code": 16,
-      "productName": "Produto 16",
-      "category": "varejo"
     }
   ]
 }
