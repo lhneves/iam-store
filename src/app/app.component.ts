@@ -6,7 +6,10 @@ import {
   ionArrowRedoSharp,
   ionTrashSharp,
 } from '@ng-icons/ionicons';
-import { heroUserCircle } from '@ng-icons/heroicons/outline';
+import {
+  heroUserCircle,
+  heroChevronDoubleLeft,
+} from '@ng-icons/heroicons/outline';
 import { HttpClientModule } from '@angular/common/http';
 
 @Component({
@@ -20,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
       ionArrowRedoSharp,
       ionTrashSharp,
       ionAddCircleOutline,
+      heroChevronDoubleLeft,
     }),
   ],
 })
