@@ -19,22 +19,22 @@
       "category": "internacional"
     },
     {
-      "id": "1",
+      "id": "4",
       "code": 4,
       "productName": "Produto 4",
       "category": "atacado"
     },
     {
-      "id": "2",
+      "id": "5",
       "code": 5,
       "productName": "Produto 5",
       "category": "varejo"
     },
     {
-      "id": "3",
+      "id": "6",
       "code": 6,
       "productName": "Produto 6",
-      "category": "internacional"
+      "category": "varejo"
     }
   ]
 }

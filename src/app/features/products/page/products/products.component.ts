@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 
 import { ProductService } from '../../service/product.service';
 
@@ -9,9 +9,6 @@ import { ProductRegisterFormComponent } from '../../components/product-register-
 
 import { IProduct } from '../../models/product.model';
 
-import { ToastModule } from 'primeng/toast';
-import { MessageService } from 'primeng/api';
-
 @Component({
   standalone: true,
   selector: 'app-product-page',
@@ -20,19 +17,14 @@ import { MessageService } from 'primeng/api';
     ProductSearchComponent,
     ProductCardComponent,
     ProductRegisterFormComponent,
-    ToastModule,
   ],
-  providers: [MessageService],
   templateUrl: './products.component.html',
 })
 export class ProductPageComponent {
   products: IProduct[] = [];
   errorMessage: string | null = null;
 
-  constructor(
-    private productService: ProductService,
-    private messageService: MessageService
-  ) {}
+  productService = inject(ProductService);
 
   ngOnInit() {
     this.fetchProducts();
@@ -59,19 +51,7 @@ export class ProductPageComponent {
       });
   }
 
-  handleDeleteProduct(filters: { id: string }) {
-    this.productService.deleteProductById(filters.id).subscribe(() => {
-      console.log('Product Deleted');
-      this.messageService.add({
-        severity: 'success',
-        summary: 'Deletado',
-        detail: 'Produto deletado com sucesso',
-      });
-      this.fetchProducts();
-    });
-  }
-
-  handleCreateProduct() {
+  refetchProducts() {
     this.fetchProducts();
   }
 }
