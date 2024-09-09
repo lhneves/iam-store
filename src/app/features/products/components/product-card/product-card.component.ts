@@ -42,7 +42,6 @@ export class ProductCardComponent {
   }
 
   confirmDelete(event: Event) {
-    console.log('chamou confirm delete');
     this.confirmationService.confirm({
       target: event.target as EventTarget,
       message: 'Tem certeza que deseja cancelar esse produto?',
